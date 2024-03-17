@@ -279,7 +279,7 @@ section h2 {
 }
 
 .data {
-  background: grey; /*------------------retirer le background gris*/
+  background: rgb(196, 196, 196);
   height: 200px;
   margin-top: 40px;
   display: flex;

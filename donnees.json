@@ -1,0 +1,99 @@
+import json
+import matplotlib.pyplot as plt
+
+# Les données JSON
+data = [
+    {
+        "lon": 4.458800,
+        "lat": 50.416133,
+        "starttime": "2023-09-01 10:56:00",
+        "endtime": "2023-09-01 10:56:00.500",
+        "startspeed": 23,
+        "endspeed": 19
+    },
+    {
+        "lon": 4.426466,
+        "lat": 50.472833,
+        "starttime": "2023-09-01 04:04:18",
+        "endtime": "2023-09-01 04:04:18.400",
+        "startspeed": 38,
+        "endspeed": 26
+    },
+    {
+        "lon": 4.438200,
+        "lat": 50.385666,
+        "starttime": "2023-09-01 11:38:59",
+        "endtime": "2023-09-01 11:39:00.000",
+        "startspeed": 98,
+        "endspeed": 90
+    },
+    {
+        "lon": 4.441266,
+        "lat": 50.389600,
+        "starttime": "2023-09-01 04:21:16",
+        "endtime": "2023-09-01 04:21:18.000",
+        "startspeed": 35,
+        "endspeed": 18
+    },
+    {
+        "lon": 4.477266,
+        "lat": 50.422266,
+        "starttime": "2023-09-01 05:12:49",
+        "endtime": "2023-09-01 05:12:49.300",
+        "startspeed": 15,
+        "endspeed": 12
+    },
+    {
+        "lon": 4.458500,
+        "lat": 50.417000,
+        "starttime": "2023-09-01 04:46:39",
+        "endtime": "2023-09-01 04:46:42.000",
+        "startspeed": 84,
+        "endspeed": 56
+    },
+    {
+        "lon": 4.395433,
+        "lat": 50.449300,
+        "starttime": "2023-09-01 05:01:32",
+        "endtime": "2023-09-01 05:01:37.500",
+        "startspeed": 80,
+        "endspeed": 40
+    },
+    {
+        "lon": 4.396100,
+        "lat": 50.451166,
+        "starttime": "2023-09-01 05:01:50",
+        "endtime": "2023-09-01 05:01:53.200",
+        "startspeed": 67,
+        "endspeed": 19
+    },
+    {
+        "lon": 4.397766,
+        "lat": 50.454900,
+        "starttime": "2023-09-01 05:02:19",
+        "endtime": "2023-09-01 05:02:20.700",
+        "startspeed": 57,
+        "endspeed": 41
+    },
+    {
+        "lon": 4.402300,
+        "lat": 50.458033,
+        "starttime": "2023-09-01 05:02:51",
+        "endtime": "2023-09-01 05:02:52.100",
+        "startspeed": 68,
+        "endspeed": 61
+    }
+]
+
+# Extraire les longitudes et latitudes
+lons = [d["lon"] for d in data]
+lats = [d["lat"] for d in data]
+
+# Tracer le graphique
+plt.figure(figsize=(10, 6))
+plt.scatter(lons, lats, color='blue', alpha=0.5)
+plt.xlabel('Longitude')
+plt.ylabel('Latitude')
+plt.title('Graphique des positions')
+plt.grid(True)
+plt.show()
