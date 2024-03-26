@@ -4,53 +4,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ticket_tec</title>
+    <title>Ticket TEC</title>
     <link rel="stylesheet" href="sass/reset.css">
     <link rel="stylesheet" href="sass/style.css">
 </head>
 
-<body>
+<body class="bodyTicket">
     <header class="header">
         <div class="container_image">
             <img src="/img/logo.png" alt="logo_company" width="100" height="100">
         </div>
         <nav class="nav_bar">
             <li><a href="index.html">Accueil</a></li>
-            <li><a href="#">Présentation</a></li>
             <li><a href="#">Contact</a></li>
         </nav>
     </header>
     <main class="main_ticket">
         <div class="grid-container">
             <div class="grid-item large">
-                    <div class="container_left">
-                        <h2 class="ticket_title">Ticket TEC</h2>
-                        <p class="paragraph_ticket">Arrêt charleroi villette</p>
+                <div class="container_left">
+                    <div class="title_date">
+                        <h2 class="ticket_title">Ticket TEC 181</h2>
+                        <p class="datetime">16 mars 2023 07:31</p>
                     </div>
 
-                    <div class="container_right">
-                        <p class="paragraph_advantage">Trop peu de validations<br>
-                            en début d'après midi</p>
-                    </div>
-                    <div class="container_circle">
-                        <div class="cirlce_green"></div>
-                    </div>
-            </div>
-            <a href="solution.html">
-            <div class="grid-item large">
-                <div class="container_left">
-                    <h2 class="ticket_title">Ticket TEC</h2>
-                    <p class="paragraph_ticket">Rue d'Orléans</p>
+                    <p class="paragraph_ticket">CHARLEROI VILETTE</p>
                 </div>
+
                 <div class="container_right">
-                    <p class="paragraph_advantage">Embouteillages aux heures en pointes</p>
-                    <p class="paragraph_advantage">Retard des bus</p>
+                    <p class="paragraph_advantage">Travaux temporaires</p>
                 </div>
                 <div class="container_circle">
-                    <div class="cirlce_red"></div>
+                    <div class="cirlce_yellow"></div>
                 </div>
             </div>
-        </a>
+            <a class='grid-container__link' href="solution.html">
+                <div class="grid-item large">
+                    <div class="container_left">
+                        <div class="title_date">
+                            <h2 class="ticket_title">Ticket TEC 182</h2>
+                            <p class="datetime">16 mars 2023 11:44</p>
+                        </div>
+
+                        <p class="paragraph_ticket">CHARLEROI OUEST</p>
+                    </div>
+                    <div class="container_right">
+                        <p class="paragraph_advantage">Embouteillages aux heures de pointes</p>
+                    </div>
+                    <div class="container_circle">
+                        <div class="cirlce_red"></div>
+                    </div>
+                </div>
+            </a>
+            <a class='grid-container__link' href="solution.html">
+                <div class="grid-item large">
+                    <div class="container_left">
+                        <div class="title_date">
+                            <h2 class="ticket_title">Ticket TEC 183</h2>
+                            <p class="datetime">16 mars 2023 09:12</p>
+                        </div>
+
+                        <p class="paragraph_ticket">CHARLEROI PLACE DE LA DIGUE</p>
+                    </div>
+                    <div class="container_right">
+                        <p class="paragraph_advantage">Travaux temporaires</p>
+                    </div>
+                    <div class="container_circle">
+                        <div class="cirlce_yellow"></div>
+                    </div>
+                </div>
+            </a>
+            <a class='grid-container__link' href="solution.html">
+                <div class="grid-item large">
+                    <div class="container_left">
+                        <div class="title_date">
+                            <h2 class="ticket_title">Ticket TEC 184</h2>
+                            <p class="datetime">16 mars 2023 20:58</p>
+                        </div>
+
+                        <p class="paragraph_ticket">CHARLEROI BEAUX-ARTS</p>
+                    </div>
+                    <div class="container_right">
+                        <p class="paragraph_advantage">Léger embouteillage</p>
+                    </div>
+                    <div class="container_circle">
+                        <div class="cirlce_orange"></div>
+                    </div>
+                </div>
+            </a>
         </div>
     </main>
 </body>

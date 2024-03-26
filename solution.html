@@ -18,144 +18,137 @@
         </div>
         <nav class="nav_bar">
             <li><a href="index.html">Accueil</a></li>
-            <li><a href="#">Présentation</a></li>
             <li><a href="#">Contact</a></li>
         </nav>
     </header>
-    <section>
+    <main>
         <div class="container_solutions">
-            <section>
-                <div class="container_solutions_ticket">
-                    <h3 class="title_solution">Ticket 182</h3>
-                    <div class="cirlce_green"></div>
-                </div>
 
-                <div class="container_solutions_title">
-                    <p class="bus">bus 92</p>
-                    <p class="arret">Rue d'Orléans</p>
-                </div>
-            </section>
-            <section class="data">
-                <p class="data_title">Solution : créer une voie prioritaire aux bus</p>
-                <canvas id="myChart" width="400" height="400"></canvas>
-            </section>
-            
+            <div class="container_solutions_ticket">
+                <h3 class="title_solution">Ticket 182</h3>
+                <p class="date">16/03/2024</p>
+                <div class="cirlce_red"></div>
+            </div>
+
+            <div class="container_solutions_title">
+                <p class="bus">Bus 86 Gosselies Athénée- Charleroi gare centrale</p>
+                <p class="arret">CHARLEROI OUEST</p>
+            </div>
+
+            <canvas id="myChart"></canvas>
+
+            <div class="div_data">
+                <p class="data">
+                    Déviation pour les bus de la ligne 86 vers Boulevard Jacques Bertrand.
+                </p>
+                <p class="data">
+                    Arrêt temporaire dans la rue des Alliés.
+                </p>
+            </div>
+
+            <div>
+                <a href="img/carte_aisin.jpg" target="_blank"><img class="map" src="img/Map.jpg" alt="map"></a>
+            </div>
         </div>
-    </section>
+    </main>
     <script>
-        // Les données JSON
+    
         const data = [
             {
-                "lon": 4.458800,
-                "lat": 50.416133,
-                "starttime": "2023-09-01 10:56:00",
-                "endtime": "2023-09-01 10:56:00.500",
-                "startspeed": 23,
-                "endspeed": 19
+                "vit": 11,
+                "time": '8h00',
+                "valid": 18
             },
             {
-                "lon": 4.426466,
-                "lat": 50.472833,
-                "starttime": "2023-09-01 04:04:18",
-                "endtime": "2023-09-01 04:04:18.400",
-                "startspeed": 38,
-                "endspeed": 26
+                "vit": 9,
+                "time": '8h30',
+                "valid": 19
+
             },
             {
-                "lon": 4.438200,
-                "lat": 50.385666,
-                "starttime": "2023-09-01 11:38:59",
-                "endtime": "2023-09-01 11:39:00.000",
-                "startspeed": 98,
-                "endspeed": 90
+                "vit": 4,
+                "time": '9h00',
+                "valid": 1
             },
             {
-                "lon": 4.441266,
-                "lat": 50.389600,
-                "starttime": "2023-09-01 04:21:16",
-                "endtime": "2023-09-01 04:21:18.000",
-                "startspeed": 35,
-                "endspeed": 18
+                "vit": 16,
+                "time": '9h30',
+                "valid": 4
             },
             {
-                "lon": 4.477266,
-                "lat": 50.422266,
-                "starttime": "2023-09-01 05:12:49",
-                "endtime": "2023-09-01 05:12:49.300",
-                "startspeed": 15,
-                "endspeed": 12
+                "vit": 28,
+                "time": '10h00',
+                "valid": 11
             },
             {
-                "lon": 4.458500,
-                "lat": 50.417000,
-                "starttime": "2023-09-01 04:46:39",
-                "endtime": "2023-09-01 04:46:42.000",
-                "startspeed": 84,
-                "endspeed": 56
+                "vit": 30,
+                "time": '10h30',
+                "valid": 9
             },
             {
-                "lon": 4.395433,
-                "lat": 50.449300,
-                "starttime": "2023-09-01 05:01:32",
-                "endtime": "2023-09-01 05:01:37.500",
-                "startspeed": 80,
-                "endspeed": 40
-            },
-            {
-                "lon": 4.396100,
-                "lat": 50.451166,
-                "starttime": "2023-09-01 05:01:50",
-                "endtime": "2023-09-01 05:01:53.200",
-                "startspeed": 67,
-                "endspeed": 19
-            },
-            {
-                "lon": 4.397766,
-                "lat": 50.454900,
-                "starttime": "2023-09-01 05:02:19",
-                "endtime": "2023-09-01 05:02:20.700",
-                "startspeed": 57,
-                "endspeed": 41
-            },
-            {
-                "lon": 4.402300,
-                "lat": 50.458033,
-                "starttime": "2023-09-01 05:02:51",
-                "endtime": "2023-09-01 05:02:52.100",
-                "startspeed": 68,
-                "endspeed": 61
+                "vit": 9,
+                "time": '11h00',
+                "valid": 12
             }
         ];
 
-        // Extraire les longitudes et latitudes
-        const lons = data.map(d => d.lon);
-        const lats = data.map(d => d.lat);
+        const vitesses = data.map(entry => entry.vit);
+        const temps = data.map(entry => entry.time);
+        const validations = data.map(entry => entry.valid)
 
-        // Créer un graphique
         const ctx = document.getElementById('myChart').getContext('2d');
         const myChart = new Chart(ctx, {
-            type: 'scatter',
+            type: 'line',
             data: {
-                datasets: [{
-                    label: 'Positions',
-                    data: data.map(d => ({ x: d.lon, y: d.lat })),
-                    backgroundColor: 'blue',
-                    pointRadius: 5
-                }]
+                labels: temps,
+                datasets: [
+                    {
+                        label: 'Vitesse',
+                        data: vitesses,
+                        fill: false,
+                        borderColor: 'blue',
+                        tension: 0.6,
+
+                    },
+                    {
+                        label: 'Validation ',
+                        data: validations,
+                        fill: false,
+                        borderColor: 'red',
+                        tension: 0.6,
+                    },
+                ]
             },
             options: {
                 scales: {
-                    x: {
-                        type: 'linear',
-                        position: 'bottom'
-                    },
                     y: {
-                        type: 'linear',
-                        position: 'left'
+                        position: 'left',
+                        beginAtZero: true
+                    },
+                    
+
+                    y1: {
+                        position: 'right', 
+                        grid: {
+                            display: false
+                        },
+                        title: {
+                            display: true,
+                            text: 'Validation'
+                        },
+
+                        min: 0,
+                        max: 20,
+                        ticks: {
+
+                            stepSize: 2
+                        }
                     }
                 }
+
             }
         });
+
     </script>
 </body>
 
